@@ -1,0 +1,14 @@
+#! /bin/dash
+# Starts the environment
+# (c) tudurom 2016 - wtfpl
+#
+
+compton -b
+sxhkd -c ~/.config/sxhkd/wmutils_sxhkd &
+urxvtd &
+#wew | focus_watcher.sh &
+wew | wewhandle &
+feh --bg-scale ~/usr/media/pictures/wallpapers/trees.jpg
+xwait
+
+# vim: set ft=sh :

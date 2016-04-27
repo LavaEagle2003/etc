@@ -1,0 +1,21 @@
+sw_volume: 98
+audio_device_state:1:Alsa
+state: pause
+current: 0
+time: 258.519000
+random: 0
+repeat: 1
+single: 0
+consume: 0
+crossfade: 5
+mixrampdb: 0.000000
+mixrampdelay: -1.000000
+playlist_begin
+0:01 - Dilwale - Gerua [DJMaza.Info].mp3
+1:Salman Khan - Main Hoon Hero Tera .mp3
+2:GF BF.mp3
+3:Soch Na Sake (Airlift) - 320 Kbps(VipMusic.In).mp3
+4:01 Sooraj Dooba Hain Yaaron -Roy .mp3
+5:One Direction - Made In The A.M. (Deluxe Edition) 2015 {MP3 Album}~{VBUc}/03 Perfect.mp3
+6:blame-the-night.mp3
+playlist_end

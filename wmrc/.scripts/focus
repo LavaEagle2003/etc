@@ -1,0 +1,128 @@
+#!/bin/sh
+#
+# wildefyr & z3bra - 2016 (c) MIT
+# focus wrapper with fullscreen check
+
+ARGS="$@"
+
+usage() {
+    cat >&2 << EOF
+Usage: $(basename $0) [-w wid] [-npchq] <--enable|--disable>
+    -w | --wid:     Focus the given window.
+    -n | --next:    Focus the next window on the stack.
+    -p | --prev:    Focus the previous window on the stack.
+    -c | --cursor:  Focus the window underneath the cursor.
+    -e | --enable:  Optional: Enable movement of the mouse.
+    -d | --disable: Optional: Disable movement of the mouse.
+    -q | --quiet:   Suppress all textual output.
+    -h | --help:    Show this help.
+EOF
+
+    test $# -eq 0 || exit $1
+}
+
+hoverPush() {
+    test -f "$HOVER" && {
+        while read -r wid; do
+            chwso -r "$wid"
+        done < "$HOVER"
+    }
+}
+
+focusWid() {
+    wattr "$1" && {
+        wid="$1"
+        focusMethod
+    }
+}
+
+focusUnderneath() {
+    wid=$(underneath.sh)
+    test ! -z "$wid" && focusMethod
+}
+
+focusNext() {
+    wid="$(lsw | grep -v "$PFW" | sed '1 p;d')"
+    test ! -z "$wid" && focusMethod
+}
+
+focusPrev() {
+    wid="$(lsw | grep -v "$PFW" | sed '$ p;d')"
+    test ! -z "$wid" && focusMethod
+}
+
+focusMethod() {
+    test "$wid" = "$PFW" && exit 1
+
+    # be as responsive as possible to user input
+    wtf "$wid"
+    chwso -r "$wid"
+
+    grep -qw "$wid" "$FSFILE" 2> /dev/null
+
+    case $? in
+        # if focusing a window in FSFILE
+        0)
+            chwb -s $BW -c "$INACTIVE" "$PFW"
+            chwb -s 0 "$wid"
+            ;;
+        1)
+            grep -qw "$PFW" "$FSFILE" && {
+                # if focusing a window when current window is in FSFILE
+                chwb -s 0 "$PFW"
+                chwb -s $BW -c "$ACTIVE" "$wid"
+            } || {
+                # FSFILE exists but no wid listed in it is being used
+                chwb -s $BW -c "$INACTIVE" "$PFW"
+                chwb -s $BW -c "$ACTIVE" "$wid"
+            }
+            ;;
+        *)
+            # normal focusing
+            chwb -s $BW -c "$INACTIVE" "$PFW"
+            chwb -s $BW -c "$ACTIVE" "$wid"
+            ;;
+    esac
+}
+
+moveMouse() {
+    . mouse
+
+    mouseStatus=$(getMouseStatus)
+    test ! -z $mouseStatus && test $mouseStatus -eq 1 && moveMouseEnabled "$wid"
+}
+
+main() {
+    # automatically focus the window underneath the cursor
+    test $# -eq 0 && {
+        focusUnderneath
+    } || {
+        case "$1" in
+            -w|--wid)    focusWid "$2"   ;;
+            -n|--next)   focusNext       ;;
+            -p|--prev)   focusPrev       ;;
+            -c|--cursor) focusUnderneath ;;
+            *)           usage 1         ;;
+        esac
+
+        test "$MOUSE" = "true" && moveMouse
+    }
+
+    hoverPush
+}
+
+
+for arg in $ARGS; do
+    case "$arg" in
+        -e|--enable)      MOUSE=true     ;;
+        -d|--disable)     MOUSE=false    ;;
+        -q|--quiet)       QUIETFLAG=true ;;
+        -h|--help|h|help) usage 0        ;;
+    esac
+done
+
+test "$QUIETFLAG" = "true" && {
+    main $ARGS 2>&1 > /dev/null
+} || {
+    main $ARGS
+}
