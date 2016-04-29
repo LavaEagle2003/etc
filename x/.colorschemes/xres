@@ -1,0 +1,34 @@
+
+/* colours */
+#include "fyry"
+
+/* basics */
+!*.modifier : mod3
+
+/* fonts */
+
+*.font     : -benis-lemon-*-*-*-*-*-*-*-*-*-*-*-*
+*.boldFont : -benis-lemon-*-*-*-*-*-*-*-*-*-*-*-*
+
+URxvt*font: xft:Monospace:pixelsize=12
+URxvt*.boldFont : xft:Monospace:pixelsize=12
+
+/* general settings */
+*.cursorBlink     : 0
+*.cursorUnderline : 0
+*.pointerBlank    : 1
+*.urgentOnBell    : 1
+*.visualBell      : 0
+*.saveLines       : 16384
+
+/* URxvt general settings */
+URxvt.internalBorder : 10
+URxvt.externalBorder : 0
+URxvt.scrollBar      : 0
+
+/* URxvt transparency */
+URxvt.transparent : False
+Urxvt.depth       : 32
+URxvt.shading     : 20
+URxvt.geometry: 70x20
+

@@ -18,7 +18,7 @@ fi
 xset +fp ~/.fonts
 xset fp rehash
 
-xrdb load ~/.colorschemes/cloudy
+xrdb load ~/.colorschemes/xres
 mpd &
 notifyd &
 xsetroot -cursor_name left_ptr &
