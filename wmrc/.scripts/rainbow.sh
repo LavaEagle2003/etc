@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/dash
 #
 # z3bra - 2015 (c) wtfpl
 # make the current window "rainbowish"... Awesome idea from xero@nixers.net !

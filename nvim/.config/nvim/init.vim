@@ -59,7 +59,6 @@ set hidden
 set noerrorbells
 set number
 syn on
-colorscheme ryuuko
 " Enhance command-line completion
 set wildmenu
 set wildmode=longest,full
@@ -96,12 +95,16 @@ let g:python_host_skip_check= 1
 let g:loaded_python_provider = 1
 let g:loaded_python3_provider = 1
 
-" Make Neovim more python[PEP8] friendly
+" Make Neovim more python [PEP8] friendly
 " Pressing <tab> results in four spaces
 " (useful for indenting code)
+
 setlocal tabstop=4
 setlocal softtabstop=4
 setlocal shiftwidth=4
 setlocal textwidth=80
 setlocal smarttab
 setlocal expandtab
+
+" Colorscheme
+colorscheme miromiro

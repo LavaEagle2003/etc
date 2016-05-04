@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/dash
 #
 # Copyright (c) 2015 Greduan <me@greduan.com>, licensed under the WTFPL license
 # Credit where credit is due, the grid algorithm was written by z3bra

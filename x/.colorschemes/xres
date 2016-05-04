@@ -1,17 +1,18 @@
-
 /* colours */
-#include "fyry"
+#include "smokey"
 
 /* basics */
 !*.modifier : mod3
 
 /* fonts */
 
-*.font     : -benis-lemon-*-*-*-*-*-*-*-*-*-*-*-*
-*.boldFont : -benis-lemon-*-*-*-*-*-*-*-*-*-*-*-*
+!*.font     : -benis-lemon-*-*-*-*-*-*-*-*-*-*-*-*
+!*.boldFont : -benis-lemon-*-*-*-*-*-*-*-*-*-*-*-*
 
 URxvt*font: xft:Monospace:pixelsize=12
 URxvt*.boldFont : xft:Monospace:pixelsize=12
+
+
 
 /* general settings */
 *.cursorBlink     : 0

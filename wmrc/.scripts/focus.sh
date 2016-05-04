@@ -1,10 +1,10 @@
-#!/bin/sh
+#!/bin/dash
 #
 # z3bra - 2014 (c) wtfpl
 # window focus wrapper that sets borders and can focus next/previous window
 
 BW=${BW:-2}                    # border width
-ACTIVE=${ACTIVE:-0x63a690}     # active border color
+ACTIVE=${ACTIVE:-515151}     # active border color
 
 INACTIVE=${INACTIVE:-0x333333} # inactive border color
 

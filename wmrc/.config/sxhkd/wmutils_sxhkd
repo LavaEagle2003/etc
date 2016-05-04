@@ -1,8 +1,4 @@
 ## wm-independent hotkeys
-# lock screen
-super + w 
-   lock.sh 
-
 # reload sxhkd
 super + Escape
 	pkill -USR1 -x sxhkd
@@ -102,8 +98,8 @@ super + alt + {1,2,3,4,5,6}
 super + alt + shift + Return
   groups.sh -d all
 
-# puts window in a corner
-super + shift + {q,w,a,s,e,d}
-  corner {tl,mt,bl,mb,tr,br}
+# puts window in a corner and centre
+super + shift + {q,w,a,s,e,d,space}
+  corner.sh {tl,mt,bl,mb,tr,br,mm}
 
 

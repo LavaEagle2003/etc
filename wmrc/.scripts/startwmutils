@@ -8,7 +8,7 @@ sxhkd -c ~/.config/sxhkd/wmutils_sxhkd &
 urxvtd &
 #wew | focus_watcher.sh &
 wew | wewhandle &
-feh --bg-scale ~/usr/media/pictures/wallpapers/trees.jpg
+feh  --bg-scale '/home/tanay/usr/media/pictures/Chrome/20130206-211837_Rust Knot_high_resolution.jpg'
 xwait
 
 # vim: set ft=sh :

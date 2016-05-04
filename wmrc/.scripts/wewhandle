@@ -30,4 +30,3 @@ while IFS=: read -r ev wid; do
 done
 
 # vim: set ft=sh :
-# vim: set ft=sh :
