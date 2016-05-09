@@ -1,16 +1,16 @@
 /* colours */
-#include "greenery"
+#include "cloudy"
 
 /* basics */
 !*.modifier : mod3
 
 /* fonts */
 
-!*.font     : -benis-lemon-*-*-*-*-*-*-*-*-*-*-*-*
-!*.boldFont : -benis-lemon-*-*-*-*-*-*-*-*-*-*-*-*
 
-URxvt*font: xft:Monospace:pixelsize=12
-URxvt*.boldFont : xft:Monospace:pixelsize=12
+!URxvt*font: xft:Monospace:pixelsize=9
+URxvt*font: xft:Termsynu:pixelsize=15
+URxvt*boldFont: xft:Termsynu:pixelsize=15
+
 
 
 
@@ -21,6 +21,7 @@ URxvt*.boldFont : xft:Monospace:pixelsize=12
 *.urgentOnBell    : 1
 *.visualBell      : 0
 *.saveLines       : 16384
+
 
 /* URxvt general settings */
 URxvt.internalBorder : 10

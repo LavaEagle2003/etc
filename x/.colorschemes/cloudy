@@ -39,7 +39,4 @@
 ! white
 *.color7:       #c0c5ce
 *.color15:      #eff1f5
-URxvt*font: xft:Monospace:pixelsize=12
-URxvt.scrollBar: false
-URxvt.geometry: 70x20
 
